@@ -15,6 +15,10 @@ from objectify.resources.owner import OwnerResource
 from objectify.resources.reports import ReportsResource
 from objectify.resources.import_export import ImportExportResource
 from objectify.resources.notifications import NotificationsResource
+from objectify.resources.associations import AssociationsResource
+from objectify.resources.views import ViewsResource
+from objectify.resources.comments import CommentsResource
+from objectify.resources.workflows import WorkflowsResource
 
 
 class ObjectifyClient:
@@ -51,6 +55,10 @@ class ObjectifyClient:
         self.reports = ReportsResource(self)
         self.import_export = ImportExportResource(self)
         self.notifications = NotificationsResource(self)
+        self.associations = AssociationsResource(self)
+        self.views = ViewsResource(self)
+        self.comments = CommentsResource(self)
+        self.workflows = WorkflowsResource(self)
 
     def close(self) -> None:
         self._client.close()
