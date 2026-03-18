@@ -5,7 +5,7 @@ Python SDK for the [Objectify](https://objectify.cloud) multi-tenant Objects Pla
 ## Installation
 
 ```bash
-pip install objectify-sdk
+pip install git+https://github.com/ObjectifyCloud/sdk-python.git
 ```
 
 ## Quick Start
