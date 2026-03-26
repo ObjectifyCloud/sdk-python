@@ -12,9 +12,10 @@ class ObjectifyError(Exception):
     @classmethod
     def from_response(cls, status: int, body: dict[str, Any] | None) -> ObjectifyError:
         body = body or {}
-        code = body.get("code", "unknown_error")
-        msg = body.get("message") or body.get("error") or f"HTTP {status}"
-        details = body.get("details")
+        err = body.get("error", {}) if isinstance(body.get("error"), dict) else {}
+        code = err.get("code") or body.get("code", "unknown_error")
+        msg = err.get("message") or body.get("message") or f"HTTP {status}"
+        details = err.get("details") or body.get("details")
         error_map: dict[int, type[ObjectifyError]] = {
             400: ValidationError, 422: ValidationError,
             401: UnauthorizedError, 403: ForbiddenError,

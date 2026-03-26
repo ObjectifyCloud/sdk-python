@@ -7,7 +7,7 @@ if TYPE_CHECKING:
 class ReportsResource:
     def __init__(self, client: ObjectifyClient): self._c = client
 
-    def pipeline(self, type_id: str, **d: Any) -> Any: return self._c.post(f"/reports/{type_id}/pipeline", json=d)
-    def timeseries(self, type_id: str, **d: Any) -> Any: return self._c.post(f"/reports/{type_id}/timeseries", json=d)
-    def leaderboard(self, type_id: str, **d: Any) -> Any: return self._c.post(f"/reports/{type_id}/leaderboard", json=d)
-    def funnel(self, type_id: str, **d: Any) -> Any: return self._c.post(f"/reports/{type_id}/funnel", json=d)
+    def pipeline(self, type_id: str, **d: Any) -> Any: return self._c.post("/v1/reports/pipeline", json={"type_id": type_id, **d})
+    def timeseries(self, type_id: str, **d: Any) -> Any: return self._c.post("/v1/reports/timeseries", json={"type_id": type_id, **d})
+    def leaderboard(self, type_id: str, **d: Any) -> Any: return self._c.post("/v1/reports/leaderboard", json={"type_id": type_id, **d})
+    def funnel(self, type_id: str, **d: Any) -> Any: return self._c.post("/v1/reports/funnel", json={"type_id": type_id, **d})

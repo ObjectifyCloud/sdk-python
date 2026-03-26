@@ -7,5 +7,5 @@ if TYPE_CHECKING:
 class SearchResource:
     def __init__(self, client: ObjectifyClient): self._c = client
 
-    def search(self, type_id: str, **params: Any) -> Any: return self._c.post(f"/objects/{type_id}/search", json=params)
-    def aggregate(self, type_id: str, **params: Any) -> Any: return self._c.post(f"/objects/{type_id}/aggregate", json=params)
+    def search(self, type_id: str, **params: Any) -> Any: return self._c.post(f"/v1/objects/{type_id}/search", json=params)
+    def aggregate(self, type_id: str, **params: Any) -> Any: return self._c.post(f"/v1/objects/{type_id}/aggregate", json=params)

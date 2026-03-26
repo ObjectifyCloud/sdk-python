@@ -16,7 +16,7 @@ class OwnerResource:
     def reset_password(self, token: str, password: str) -> Any: return self._c.post("/owner/reset-password", json={"token": token, "password": password})
     def list_tenants(self) -> Any: return self._c.get("/owner/tenants")
     def create_tenant(self, name: str, **d: Any) -> Any: return self._c.post("/owner/tenants", json={"name": name, **d})
-    def switch_tenant(self, tenant_id: str) -> Any: return self._c.post(f"/owner/tenants/{tenant_id}/switch")
+    def switch_tenant(self, tenant_id: str) -> Any: return self._c.post("/owner/switch-tenant", json={"tenant_id": tenant_id})
     def mfa_enroll(self) -> Any: return self._c.post("/owner/mfa/enroll", json={"type": "totp"})
     def mfa_verify(self, code: str) -> Any: return self._c.post("/owner/mfa/verify", json={"code": code})
     def mfa_list(self) -> Any: return self._c.get("/owner/mfa/factors")

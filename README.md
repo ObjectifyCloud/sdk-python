@@ -1,4 +1,10 @@
-# objectify-sdk
+# objectify-sdk (DEPRECATED)
+
+> **This package is deprecated.** A new auto-generated Python SDK will be produced from the OpenAPI spec using `openapi-python-client`. Run `npm run generate:python-sdk` from the `api/` directory to generate it.
+>
+> The generated SDK provides 100% API coverage by construction and stays in sync with the API automatically.
+
+---
 
 Python SDK for the [Objectify](https://objectify.cloud) multi-tenant Objects Platform API.
 
